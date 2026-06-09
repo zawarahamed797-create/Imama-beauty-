@@ -664,4 +664,1529 @@
 
         .service-luxury-card:hover .card-icon-frame {
             background: var(--primary-plum);
- 
+            border-radius: 16px;
+            padding: 2.2rem 1.8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-luxury-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blush-pink), var(--rose-gold));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-luxury-card:hover::before { opacity: 1; }
+
+        .service-luxury-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(74, 25, 66, 0.08);
+            border-color: var(--rose-gold);
+        }
+
+        .card-icon-frame {
+            width: 60px;
+            height: 60px;
+            background: var(--ivory-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--primary-plum);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .card-icon-frame {
+            background: #251322;
+            color: var(--rose-gold);
+        }
+
+        .service-luxury-card:hover .card-icon-frame {
+            background: var(--primary-plum);
+            color: var(--text-light);
+            transform: scale(1.05);
+        }
+
+        [data-theme="dark"] .service-luxury-card:hover .card-icon-frame {
+            background: var(--rose-gold);
+            color: var(--charcoal);
+        }
+
+        .service-luxury-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-plum);
+            margin-bottom: 0.8rem;
+        }
+
+        [data-theme="dark"] .service-luxury-card h3 { color: var(--ivory-white); }
+
+        .service-luxury-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- DETAILAED TRAINING COURSE CARDS --- */
+        .promo-pill {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #FF416C, #FF4B2B);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            animation: pulsePill 1.5s infinite;
+        }
+
+        @keyframes pulsePill {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        .duration-badge {
+            display: inline-block;
+            background-color: rgba(199, 149, 108, 0.12);
+            color: var(--rose-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .course-footer {
+            margin-top: 1.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* --- MASONRY GALLERY WITH FILTERS --- */
+        .filter-controls-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.6rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--rose-gold);
+            color: white;
+            border-color: var(--rose-gold);
+        }
+
+        .masonry-portfolio-view {
+            columns: 4 280px;
+            column-gap: 1.5rem;
+            width: 100%;
+        }
+
+        .gallery-item-wrapper {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-canvas-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 220px;
+            display: block;
+            transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Generates loading shimmer effect */
+        .shimmer-mask {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-mask::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            animation: shimmerEffect 2.5s infinite;
+        }
+        @keyframes shimmerEffect {
+            0% { left: -150%; }
+            100% { left: 150%; }
+        }
+
+        .gallery-item-wrapper:hover .gallery-canvas-placeholder {
+            transform: scale(1.08);
+        }
+
+        .gallery-action-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 25, 66, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .gallery-item-wrapper:hover .gallery-action-overlay { opacity: 1; }
+        .gallery-action-overlay i { font-size: 1.8rem; margin-bottom: 0.5rem; transform: scale(0.7); transition: var(--transition); }
+        .gallery-item-wrapper:hover .gallery-action-overlay i { transform: scale(1); }
+        .gallery-action-overlay h4 { font-size: 1.4rem; font-weight: 600; }
+        .gallery-action-overlay p { font-size: 0.85rem; color: var(--blush-pink); }
+
+        /* Lightbox CSS Architecture */
+        .lightbox-portal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(18, 6, 16, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .lightbox-portal.open { display: flex; opacity: 1; }
+        .lightbox-content-box { max-width: 85%; max-height: 80%; position: relative; }
+        .lightbox-viewer-canvas { max-width: 100%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 40px rgba(0,0,0,0.5); border: 2px solid var(--rose-gold); }
+        .lightbox-dismiss-trigger { position: absolute; top: -50px; right: 0; color: white; font-size: 2rem; cursor: pointer; background: transparent; border: none; }
+        .lightbox-caption-box { color: white; text-align: center; margin-top: 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+
+        /* --- GOOGLE REVIEWS SUMMARY & CAROUSEL --- */
+        .reviews-analytics-layout {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .rating-aggregate-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .rating-aggregate-card h3 { font-size: 4.5rem; line-height: 1; color: var(--primary-plum); }
+        [data-theme="dark"] .rating-aggregate-card h3 { color: var(--rose-gold); }
+        .stars-row { color: #FFC107; font-size: 1.3rem; margin: 0.8rem 0; }
+        .reviews-total-txt { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; margin-bottom: 1.5rem; }
+
+        .histogram-engine { display: flex; flex-direction: column; gap: 0.6rem; }
+        .histogram-row { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; color: var(--text-muted); }
+        .histogram-bar-track { flex-grow: 1; height: 8px; background: var(--bg-main); border-radius: 10px; overflow: hidden; }
+        .histogram-fill { height: 100%; background: #FFC107; border-radius: 10px; }
+
+        /* Auto Carousel Matrix */
+        .carousel-outer-rail {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .carousel-internal-slider {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.5s ease-in-out;
+            width: max-content;
+        }
+
+        .review-luxury-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2.2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            width: 380px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .review-luxury-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(199, 149, 108, 0.15);
+            border-color: var(--rose-gold);
+        }
+
+        .review-client-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .client-profile-block h4 { font-size: 1.15rem; color: var(--text-main); }
+        .client-profile-block small { color: var(--text-muted); font-size: 0.8rem; }
+        .review-luxury-box p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-style: italic; }
+
+        /* --- APPOINTMENT BOOKING ENGINE --- */
+        .booking-central-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .booking-form-pane { padding: 3.5rem; }
+        .booking-info-pane {
+            background: linear-gradient(135deg, var(--primary-plum), #290B24);
+            color: white;
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .booking-info-pane h3 { font-size: 2.4rem; color: var(--champagne); margin-bottom: 1.5rem; }
+        .booking-info-pane p { font-size: 1.05rem; line-height: 1.7; opacity: 0.85; margin-bottom: 2.5rem; }
+        
+        .contact-bullets-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-bullet-item { display: flex; align-items: flex-start; gap: 1rem; }
+        .contact-bullet-item i { font-size: 1.3rem; color: var(--rose-gold); margin-top: 0.2rem; }
+        .contact-bullet-item div h5 { font-size: 1.05rem; color: var(--champagne); }
+        .contact-bullet-item div p { margin-bottom: 0; font-size: 0.95rem; opacity: 0.9; }
+
+        .form-layout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .input-element-group { display: flex; flex-direction: column; gap: 0.5rem; position: relative; }
+        .input-element-group.full-width { grid-column: span 2; }
+        
+        .input-element-group label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-main); }
+        
+        .form-interactive-field {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-interactive-field:focus {
+            outline: none;
+            border-color: var(--primary-plum);
+            background: var(--bg-surface);
+            box-shadow: 0 0 0 3px rgba(74, 25, 66, 0.1);
+        }
+
+        [data-theme="dark"] .form-interactive-field:focus {
+            border-color: var(--rose-gold);
+            box-shadow: 0 0 0 3px rgba(201, 149, 108, 0.2);
+        }
+
+        .field-validation-msg {
+            font-size: 0.75rem;
+            color: #FF4B2B;
+            position: absolute;
+            bottom: -18px;
+            left: 0;
+            display: none;
+        }
+
+        /* --- CONTACT METRIC CARDS & MAPS --- */
+        .contact-cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-metric-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-metric-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--rose-gold);
+        }
+
+        .contact-metric-box i { font-size: 2.2rem; color: var(--primary-plum); margin-bottom: 1.2rem; }
+        [data-theme="dark"] .contact-metric-box i { color: var(--rose-gold); }
+        .contact-metric-box h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .contact-metric-box p { font-size: 0.95rem; color: var(--text-muted); }
+
+        .maps-and-mini-form-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+        }
+
+        .map-iframe-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            height: 400px;
+            width: 100%;
+        }
+
+        .mini-form-wrapper {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .mini-form-wrapper h4 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--primary-plum); }
+        [data-theme="dark"] .mini-form-wrapper h4 { color: var(--rose-gold); }
+
+        /* --- NOTIFICATION ENGINE (TOASTS & MODALS) --- */
+        .toast-notifications-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .toast-alert {
+            background: var(--charcoal);
+            color: white;
+            padding: 1rem 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--rose-gold);
+            transform: translateX(-120%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .toast-alert.visible { transform: translateX(0); }
+
+        .modal-overlay-shroud {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-modal-content {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 3.5rem 2.5rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow);
+            animation: modalScaleUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes modalScaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .success-modal-content .checkmark-icon-frame {
+            width: 80px;
+            height: 80px;
+            background: rgba(37, 211, 102, 0.1);
+            color: #25D366;
+            font-size: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .success-modal-content h3 { font-size: 2rem; color: var(--primary-plum); margin-bottom: 0.8rem; }
+        [data-theme="dark"] .success-modal-content h3 { color: var(--rose-gold); }
+        .success-modal-content p { color: var(--text-muted); margin-bottom: 2rem; }
+
+        /* --- FOOTER & COMPONENT SYSTEMS --- */
+        footer {
+            background: #140512;
+            color: #D3C2CF;
+            padding: 5rem 5% 2rem 5%;
+            border-top: 2px solid var(--rose-gold);
+        }
+
+        .footer-grid-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 0.8fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        .footer-branding-column h3 { font-size: 2rem; color: var(--rose-gold); margin-bottom: 1rem; }
+        .footer-branding-column p { font-size: 0.95rem; line-height: 1.7; opacity: 0.8; margin-bottom: 1.5rem; }
+        
+        .footer-social-row { display: flex; gap: 1rem; }
+        .footer-social-circle {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-social-circle:hover {
+            background: var(--rose-gold);
+            color: var(--charcoal);
+            transform: translateY(-3px);
+        }
+
+        .footer-links-column h4 { font-size: 1.2rem; color: white; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-links-list a { text-decoration: none; color: #BAA9B6; transition: var(--transition); font-size: 0.95rem; }
+        .footer-links-list a:hover { color: var(--rose-gold); padding-left: 5px; }
+
+        .footer-closing-bar {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Floating Scroll Top Widget */
+        .back-to-top-scroller {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-plum);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1500;
+            border: 1px solid var(--rose-gold);
+        }
+
+        .back-to-top-scroller.visible { opacity: 1; visibility: visible; }
+        .back-to-top-scroller:hover { transform: translateY(-5px); background: var(--rose-gold); color: var(--charcoal); }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .hero-inner-container h1 { font-size: 3.5rem; }
+            .about-layout, .booking-central-card, .maps-and-mini-form-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .booking-info-pane { order: -1; padding: 2.5rem; }
+            .booking-form-pane { padding: 2.5rem; }
+            .reviews-analytics-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-grid-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-icon { display: flex; }
+            
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-surface);
+                border-bottom: 2px solid var(--border-color);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: transform 0.4s ease, opacity 0.4s ease;
+                pointer-events: none;
+            }
+
+            .nav-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .form-layout-grid { grid-template-columns: 1fr; }
+            .input-element-group.full-width { grid-column: span 1; }
+            .contact-cards-row { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero-inner-container h1 { font-size: 2.6rem; }
+            .hero-inner-container p { font-size: 1.1rem; }
+            .hero-badge { font-size: 0.8rem; padding: 0.5rem 1rem; }
+            .tabs-nav-anchor { flex-direction: column; align-items: center; gap: 0.8rem; }
+            .tab-trigger { width: 100%; text-align: center; }
+            section { padding-top: 4.5rem; padding-bottom: 3.5rem; }
+        }
+
+        /* --- PRINT STYLES SHEET --- */
+        @media print {
+            body { background: white; color: black; }
+            .navbar-sentinel, .theme-button, .hamburger-icon, .hero-ctas, .down-indicator, 
+            .tabs-nav-anchor, .filter-controls-container, .booking-central-card, .mini-form-wrapper, 
+            .back-to-top-scroller, .toast-notifications-container, footer { display: none !important; }
+            section { page-break-inside: avoid; padding: 2rem 0; }
+            .service-luxury-card, .feature-card { border: 1px solid #000; background: transparent; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- TOAST STACK NODE --- -->
+    <div class="toast-notifications-container" id="toastContainer"></div>
+
+    <!-- --- SUCCESS APPOINTMENT MODAL FRAME --- -->
+    <div class="modal-overlay-shroud" id="successModal">
+        <div class="success-modal-content">
+            <div class="checkmark-icon-frame">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modalTitle">Appointment Saved!</h3>
+            <p id="modalBody">Your scheduling parameters have been committed locally. Use the button below to instantly mirror this payload over WhatsApp directly to the management system.</p>
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <button class="btn btn-whatsapp" id="modalWhatsAppBtn"><i class="fa-brands fa-whatsapp"></i> Sync to WhatsApp</button>
+                <button class="btn btn-secondary" onclick="closeSuccessModal()">Dismiss View</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --- APPLICATION NAVIGATION NODE --- -->
+    <header>
+        <nav class="navbar-sentinel" id="navbar">
+            <a href="#home" class="logo-block">
+                <span class="logo-main"><i class="fa-solid fa-sparkles" style="color: var(--rose-gold); font-size: 1.2rem;"></i> Imama's Salon</span>
+                <span class="logo-sub">& Training Centre — Mandi Bahauddin</span>
+            </a>
+            
+            <div class="nav-container">
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-item active">Home</a></li>
+                    <li><a href="#about" class="nav-item">About</a></li>
+                    <li><a href="#services" class="nav-item">Services & Training</a></li>
+                    <li><a href="#gallery" class="nav-item">Gallery</a></li>
+                    <li><a href="#reviews" class="nav-item">Reviews</a></li>
+                    <li><a href="#booking" class="nav-item">Book</a></li>
+                    <li><a href="#contact" class="nav-item">Contact</a></li>
+                </ul>
+
+                <div class="controls-wrapper">
+                    <button class="theme-button" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                    <div class="hamburger-icon" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- --- CORE INTERACTIVE VIEWPORT ENGINE --- -->
+    <main>
+
+        <!-- 1. HERO SECTION -->
+        <section id="home" class="canvas-hero">
+            <div class="sparkle-field">
+                <div class="particle"></div><div class="particle"></div>
+                <div class="particle"></div><div class="particle"></div>
+                <span class="floating-beauty-icon f-icon-1">💄</span>
+                <span class="floating-beauty-icon f-icon-2">💅</span>
+                <span class="floating-beauty-icon f-icon-3">✨</span>
+                <span class="floating-beauty-icon f-icon-4">🌸</span>
+            </div>
+
+            <div class="hero-inner-container">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-star" style="color: #FFC107;"></i> 4.9 Rating — 47 Google Verified Reviews
+                </div>
+                <h1>Where Luxury Beauty Meets <span>Professional Excellence</span></h1>
+                <p>Experience precision hair transformations and premium bridal makeovers at Mandi Bahauddin's most trusted luxury sanctuary & premium beauty academy.</p>
+                <div class="hero-ctas">
+                    <a href="#booking" class="btn btn-primary">Book Appointment</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-down down-indicator" onclick="document.getElementById('about').scrollIntoView();"></i>
+        </section>
+   <!-- 2. ABOUT SECTION -->
+        <section id="about" class="reveal">
+            <div class="about-layout">
+                <div class="about-text">
+                    <div class="hero-badge">Aesthetic Heritage</div>
+                    <h3>Crafting Flawless Realities Since Inception</h3>
+                    <p>Imama's Beauty Salon & Training Centre stands at the pinnacle of luxury care in Mandi Bahauddin. Led by elite beauty artisans and educators, we synthesize medical-grade skin therapies, high-end hair engineering like Botox and Nanoplastia, with breathtaking traditional bridal styles.</p>
+                    <p>As a highly respected technical academy, we train the next generation of professional beauticians utilizing rigorous structural frameworks, covering everything from hair cell anatomy to advanced color chemistry.</p>
+                    
+                    <div class="metrics-engine">
+                        <div class="metric-card">
+                            <div class="counter-numeric" data-target="47">0</div>
+                            <div class="counter-label">Google Reviews</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="counter-numeric" data-target="5">0</div>
+                            <div class="counter-label">Expert Mentors</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="counter-numeric" data-target="30">0</div>
+                            <div class="counter-label">Luxury Procedures</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="counter-numeric" data-target="6">0</div>
+                            <div class="counter-label">Master Academies</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-proof-strip">
+                    <h4>Our Connected Ecosystem</h4>
+                    <p style="text-align: center; font-size: 0.9rem; margin-bottom: 1.5rem; color: var(--text-muted);">Join thousands of clients tracking our transformations live across global public indexes.</p>
+                    <div class="social-networks-matrix">
+                        <a href="https://www.tiktok.com" target="_blank" class="social-hub-card">
+                            <i class="fa-brands fa-tiktok"></i>
+                            <span>8.3K+</span>
+                            <small>Followers</small>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" class="social-hub-card">
+                            <i class="fa-brands fa-facebook"></i>
+                            <span>530+</span>
+                            <small>Followers</small>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-hub-card">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>290+</span>
+                            <small>Followers</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SERVICES SECTION (DUAL SUB-TABS LOGIC) -->
+        <section id="services" class="reveal">
+            <div class="section-header">
+                <h2>Our Premium Portfolio</h2>
+                <p>Toggle between our active treatment catalog and professional technical academy programs.</p>
+            </div>
+
+            <div class="tabs-nav-anchor">
+                <button class="tab-trigger active" onclick="switchTabChannel('salonServicesChannel', event)">Salon Clinical Care</button>
+                <button class="tab-trigger" onclick="switchTabChannel('trainingAcademyChannel', event)">Academy Training Programs</button>
+            </div>
+
+            <!-- TAB PANE A: SALON PROCEDURES -->
+            <div id="salonServicesChannel" class="panel-view active">
+                <div class="services-grid-layout">
+                    <!-- Cards loop -->
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Bridal Premium Care</h3>
+                        <p>Flawless HD makeup execution engineered for extreme longevity, tailored facial balancing, and high-definition photography optimization.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-scissors"></i></div>
+                        <h3>Hair Transformation Botox</h3>
+                        <p>Advanced deep-conditioning intra-silane therapy structures that repair damaged follicles, injecting mirror-like reflective shine and texture.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-dna"></i></div>
+                        <h3>Hair Nanoplastia</h3>
+                        <p>A high-tech, organic amino acid alignment configuration that straightens hair strands at a cellular matrix level without structural damage.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-sparkles"></i></div>
+                        <h3>Balayage & High-Color</h3>
+                        <p>Artisanal hand-painted multi-tonal dimensional shading utilizing high-grade safe bond protectors to prevent structural fatigue.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-hand-holding-hand"></i></div>
+                        <h3>Exquisite Henna Art</h3>
+                        <p>Intricate bridal blueprints and custom geometric traditional patterns drafted using deep-staining botanical extracts.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-spa"></i></div>
+                        <h3>Clinical Acne Solutions</h3>
+                        <p>Targeted blackhead extraction, deep dermal salicylic peeling, and cell-regenerating light masks to clear persistent breakouts.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-wind"></i></div>
+                        <h3>Keratin & Rebonding</h3>
+                        <p>Complete structural sealing systems providing absolute humidity-resistance, high resilience, and smooth hair fibers.</p>
+                    </div>
+                    <div class="service-luxury-card">
+                        <div class="card-icon-frame"><i class="fa-solid fa-gem"></i></div>
+                        <h3>Manicure & Pedicure Spa</h3>
+                        <p>Complete dead-skin exfoliation, cuticle repair matrix, hydrating oil massages, and long-lasting gel nail polishes.</p>
+                    </div>
+                </div>
+    </div>
+
+        <!-- TAB PANE B: TRAINING ACADEMY ACCELERATORS -->
+            <div id="trainingAcademyChannel" class="panel-view">
+                <div class="services-grid-layout">
+                    <!-- Course Cards detailed -->
+                    <div class="service-luxury-card">
+                        <span class="promo-pill">50% OFF</span>
+                        <div class="duration-badge">3 Months Masterclass</div>
+                        <h3>Professional Beautician Course</h3>
+                        <p>Our complete signature operational framework tracking advanced makeup mixing chemistry, salon safety management, and skin health tracking.</p>
+                        <div class="course-footer">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="dispatchWhatsAppQuery('Professional Beautician Course')">Inquire Entry Link</button>
+                        </div>
+                    </div>
+
+                    <div class="service-luxury-card">
+                        <span class="promo-pill">50% OFF</span>
+                        <div class="duration-badge">1 Month Deep-Dive</div>
+                        <h3>Hair Science & Structural Anatomy</h3>
+                        <p>Rigorous biochemical tracking of hair cell layers, cortex elasticity, porosity dynamics, and advanced chemical bond reactions.</p>
+                        <div class="course-footer">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="dispatchWhatsAppQuery('Hair Science & Anatomy Course')">Inquire Entry Link</button>
+                        </div>
+                    </div>
+
+                    <div class="service-luxury-card">
+                        <span class="promo-pill">50% OFF</span>
+                        <div class="duration-badge">6 Weeks Track</div>
+                        <h3>Advanced Makeup Artistry</h3>
+                        <p>Mastering color theory rules, contouring structures across complex jaw patterns, bridal veil settings, and studio lighting makeup adjustment.</p>
+                        <div class="course-footer">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="dispatchWhatsAppQuery('Advanced Makeup Artistry Course')">Inquire Entry Link</button>
+                        </div>
+                    </div>
+
+                    <div class="service-luxury-card">
+                        <span class="promo-pill">50% OFF</span>
+                        <div class="duration-badge">4 Weeks Track</div>
+                        <h3>Hair Dye & Bleach Formulation</h3>
+                        <p>Technical calculation systems mapping precise developer volumes, undertone counteractions, and seamless freehand highlights.</p>
+                        <div class="course-footer">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="dispatchWhatsAppQuery('Hair Dye Formulation Course')">Inquire Entry Link</button>
+                        </div>
+                    </div>
+
+                    <div class="service-luxury-card">
+                        <span class="promo-pill">50% OFF</span>
+                        <div class="duration-badge">2 Weeks Course</div>
+                        <h3>Self Grooming Mastery</h3>
+                        <p>Personal self-care optimization designed for everyday styling. Learn custom daytime glow techniques, quick blow dries, and basic skin protection.</p>
+                        <div class="course-footer">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="dispatchWhatsAppQuery('Self Grooming Mastery')">Inquire Entry Link</button>
+                        </div>
+                    </div>
+
+                    <div class="service-luxury-card">
+                        <span class="promo-pill">50% OFF</span>
+                        <div class="duration-badge">3 Weeks Track</div>
+                        <h3>Henna Blueprint Design</h3>
+                        <p>Symmetry engineering training for complex bridal meshes, Arabic shading patterns, and natural stain optimization chemistry.</p>
+                        <div class="course-footer">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="dispatchWhatsAppQuery('Henna Blueprint Design Course')">Inquire Entry Link</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. GALLERY / PORTFOLIO CONTAINER (MASONRY GRID ENGINE) -->
+        <section id="gallery" class="reveal">
+            <div class="section-header">
+                <h2>The Visual Proof Matrix</h2>
+                <p>Browse authentic high-resolution captures of our clinical procedures and bridal makeovers.</p>
+            </div>
+
+            <div class="filter-controls-container">
+                <button class="filter-btn active" onclick="executeGalleryFilter('all', event)">All Artwork</button>
+                <button class="filter-btn" onclick="executeGalleryFilter('hair', event)">Hair Masterpieces</button>
+                <button class="filter-btn" onclick="executeGalleryFilter('makeup', event)">Bridal HD Makeup</button>
+                <button class="filter-btn" onclick="executeGalleryFilter('mehndi', event)">Intricate Mehndi</button>
+            </div>
+
+            <div class="masonry-portfolio-view" id="masonryViewport">
+                <!-- Node 1 -->
+                <div class="gallery-item-wrapper filter-node-item hair shimmer-mask" data-caption="Premium Platinum Balayage Transformation">
+                    <div class="gallery-canvas-placeholder" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=600'); min-height: 350px;"></div>
+                    <div class="gallery-action-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Hair Transformation</h4>
+                        <p>View Expanded Canvas</p>
+                    </div>
+                </div>
+                <!-- Node 2 -->
+                <div class="gallery-item-wrapper filter-node-item makeup shimmer-mask" data-caption="Signature Royal HD Bridal Glow">
+                    <div class="gallery-canvas-placeholder" style="background-image: url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600'); min-height: 250px;"></div>
+                    <div class="gallery-action-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Bridal HD Makeup</h4>
+                        <p>View Expanded Canvas</p>
+                    </div>
+                </div>
+                <!-- Node 3 -->
+                <div class="gallery-item-wrapper filter-node-item mehndi shimmer-mask" data-caption="Intricate Botanical Geometric Bridal Mehndi">
+                    <div class="gallery-canvas-placeholder" style="background-image: url('https://images.unsplash.com/photo-1590156191109-9a8b4b1e8731?q=80&w=600'); min-height: 400px;"></div>
+                    <div class="gallery-action-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Intricate Henna Design</h4>
+                        <p>View Expanded Canvas</p>
+                    </div>
+                </div>
+                <!-- Node 4 -->
+                <div class="gallery-item-wrapper filter-node-item hair shimmer-mask" data-caption="High Gloss Nanoplastia Cellular Alignment">
+                    <div class="gallery-canvas-placeholder" style="background-image: url('https://images.unsplash.com/photo-1595859703065-2259982784bb?q=80&w=600'); min-height: 280px;"></div>
+                    <div class="gallery-action-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Hair Botox Treatment</h4>
+                        <p>View Expanded Canvas</p>
+                    </div>
+                </div>
+                <!-- Node 5 -->
+                <div class="gallery-item-wrapper filter-node-item makeup shimmer-mask" data-caption="Minimalist Soft Glam Reception Look">
+                    <div class="gallery-canvas-placeholder" style="background-image: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600'); min-height: 380px;"></div>
+                    <div class="gallery-action-overlay">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Elegant Party Makeup</h4>
+                        <p>View Expanded Canvas</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+ <!-- PORTFOLIO LIGHTBOX VIEW PORTAL -->
+        <div class="lightbox-portal" id="lightboxPortal">
+            <div class="lightbox-content-box">
+                <button class="lightbox-dismiss-trigger" onclick="closeGlobalLightbox()"><i class="fa-solid fa-xmark"></i></button>
+                <img src="" alt="Expanded View" class="lightbox-viewer-canvas" id="lightboxImg">
+                <div class="lightbox-caption-box" id="lightboxCaption"></div>
+            </div>
+        </div>
+
+        <!-- 5. REVIEWS SECTION -->
+        <section id="reviews" class="reveal">
+            <div class="section-header">
+                <h2>Public Review Index</h2>
+                <p>Read honest feedback from verified clients who have passed through our transformations.</p>
+            </div>
+
+            <div class="reviews-analytics-layout">
+                <div class="rating-aggregate-card">
+                    <h3>4.9</h3>
+                    <div class="stars-row">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="reviews-total-txt">Based on 47 Google Business Records</div>
+                    
+                    <div class="histogram-engine">
+                        <div class="histogram-row"><span>5 ★</span><div class="histogram-bar-track"><div class="histogram-fill" style="width: 96%"></div></div><span>96%</span></div>
+                        <div class="histogram-row"><span>4 ★</span><div class="histogram-bar-track"><div class="histogram-fill" style="width: 4%"></div></div><span>4%</span></div>
+                        <div class="histogram-row"><span>3 ★</span><div class="histogram-bar-track"><div class="histogram-fill" style="width: 0%"></div></div><span>0%</span></div>
+                        <div class="histogram-row"><span>2 ★</span><div class="histogram-bar-track"><div class="histogram-fill" style="width: 0%"></div></div><span>0%</span></div>
+                        <div class="histogram-row"><span>1 ★</span><div class="histogram-bar-track"><div class="histogram-fill" style="width: 0%"></div></div><span>0%</span></div>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-secondary" style="margin-top: 2rem; width: 100%; font-size: 0.8rem;">Write Review on Google</a>
+                </div>
+
+                <!-- PURE VANILLA CAROUSEL ENGINE -->
+                <div class="carousel-outer-rail">
+                    <div class="carousel-internal-slider" id="reviewSlider">
+                        <!-- Card 1 -->
+                        <div class="review-luxury-box">
+                            <div class="review-client-meta">
+                                <div class="client-profile-block"><h4>Amna Malik</h4><small>Verified Client</small></div>
+                                <div class="stars-row" style="margin:0;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            </div>
+                            <p>"Mera hair damage extreme tha due to previous low-grade dyes. Imama's team did a Hair Botox procedure, and the texture completely changed. Highly recommended!"</p>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="review-luxury-box">
+                            <div class="review-client-meta">
+                                <div class="client-profile-block"><h4>Sana Gondal</h4><small>Bridal Client</small></div>
+                                <div class="stars-row" style="margin:0;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            </div>
+                            <p>"Aisa flawless makeup pure Mandi Bahauddin me kahin se nahi mila. Base was smooth all night and photography me amazing glow aya."</p>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="review-luxury-box">
+                            <div class="review-client-meta">
+                                <div class="client-profile-block"><h4>Zainab Ranjha</h4><small>Academy Graduate</small></div>
+                                <div class="stars-row" style="margin:0;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            </div>
+                            <p>"Maine professional beautician course complete kiya hai yahan se. Hair science classes bohot thorough thi aur chemically har ek process samajh aya."</p>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="review-luxury-box">
+                            <div class="review-client-meta">
+                                <div class="client-profile-block"><h4>Ayesha Tarar</h4><small>Regular Client</small></div>
+                                <div class="stars-row" style="margin:0;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            </div>
+                            <p>"Their skin acne treatments are outstanding. Unho ne clean parameters maintain kiye hue hain aur natural treatments ka skin par bohat pyaara asar hua."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+             <!-- 6. APPOINTMENT BOOKING CONSOLE -->
+        <section id="booking" class="reveal">
+            <div class="booking-central-card">
+                <div class="booking-form-pane">
+                    <h4 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-plum);">Secure Your Slot</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">Fill out the structural booking parameters below to lock your treatment timeline.</p>
+                    
+                    <form id="appointmentEngineForm" onsubmit="processFormValidation(event)">
+                        <div class="form-layout-grid">
+                            <div class="input-element-group">
+                                <label for="bkName">Your Full Name</label>
+                                <input type="text" id="bkName" class="form-interactive-field" placeholder="Enter name...">
+                                <span class="field-validation-msg" id="err-bkName">This validation field is required.</span>
+                            </div>
+                            <div class="input-element-group">
+                                <label for="bkPhone">WhatsApp Contact Number</label>
+                                <input type="tel" id="bkPhone" class="form-interactive-field" placeholder="03155233895">
+                                <span class="field-validation-msg" id="err-bkPhone">Please input a valid cellular phone handle.</span>
+                            </div>
+                            <div class="input-element-group full-width">
+                                <label for="bkService">Target Procedure / Pathway</label>
+                                <select id="bkService" class="form-interactive-field">
+                                    <option value="">-- Choose Option --</option>
+                                    <option value="Bridal Premium Makeup">Bridal Premium HD Makeup</option>
+                                    <option value="Hair Botox Treatment">Hair Botox Reconstruction</option>
+                                    <option value="Hair Nanoplastia">Organic Hair Nanoplastia</option>
+                                    <option value="Clinical Acne Peeling">Clinical Acne Therapy</option>
+                                    <option value="Balayage Dimensional Shades">Balayage / Hair Color Shading</option>
+                                    <option value="Intricate Bridal Henna">Intricate Bridal Henna Design</option>
+                                    <option value="Academy Professional Program">Academy Course Registration Inquiry</option>
+                                </select>
+                                <span class="field-validation-msg" id="err-bkService">Please pin a designated service path.</span>
+                            </div>
+                            <div class="input-element-group">
+                                <label for="bkDate">Execution Date</label>
+                                <input type="date" id="bkDate" class="form-interactive-field">
+                                <span class="field-validation-msg" id="err-bkDate">Select an execution schedule date.</span>
+                            </div>
+                            <div class="input-element-group">
+                                <label for="bkTime">Time Window Block</label>
+                                <select id="bkTime" class="form-interactive-field">
+                                    <option value="">-- Select Time --</option>
+                                    <option value="09:00 AM">09:00 AM Window</option>
+                                    <option value="11:00 AM">11:00 AM Window</option>
+                                    <option value="01:00 PM">01:00 PM Window</option>
+                                    <option value="03:00 PM">03:00 PM Window</option>
+                                    <option value="05:00 PM">05:00 PM Window</option>
+                                    <option value="07:00 PM">07:00 PM Window</option>
+                                </select>
+                                <span class="field-validation-msg" id="err-bkTime">Please choose a preferred time block.</span>
+                            </div>
+                            <div class="input-element-group full-width">
+                                <label for="bkNotes">Additional Notes / Structural Scope</label>
+                                <textarea id="bkNotes" class="form-interactive-field" rows="3" placeholder="List any allergies or hair history rules..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm Local Reservation</button>
+                    </form>
+                </div>
+
+                <div class="booking-info-pane">
+                    <h3>Operational Parameters</h3>
+                    <p>Pre-scheduling guarantees dedicated attention from senior specialists. For ultra-fast manual verification, synchronize directly using the live hotlines.</p>
+                    
+                    <div class="contact-bullets-list">
+                        <div class="contact-bullet-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Active Timeline Windows</h5>
+                                <p>Open Daily • 09:00 AM to 08:00 PM</p>
+                                <p style="font-size: 0.8rem; color: var(--rose-gold);">Special priority windows open until 8 AM Wed cycles.</p>
+                            </div>
+                        </div>
+                        <div class="contact-bullet-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h5>Physical Facility Venue</h5>
+                                <p>Faisal Bank Backside, Kachehri Road, Usmania Mohallah, Mandi Bahauddin</p>
+                            </div>
+                        </div>
+                        <div class="contact-bullet-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h5>Direct Inquiry Matrix</h5>
+                                <p>0315-5233895</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT & INLINE MAP MATRIX -->
+        <section id="contact" class="reveal">
+            <div class="section-header">
+                <h2>Structural Interface Hub</h2>
+                <p>Reach out directly to find our location or send an immediate tracking message.</p>
+            </div>
+
+            <div class="contact-cards-row">
+                <a href="tel:03155233895" class="contact-metric-box">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <h4>Voice Connection</h4>
+                    <p>0315-5233895</p>
+                    <small style="color: var(--rose-gold); font-weight: bold;">Tap to establish call</small>
+                </a>
+                <a href="https://wa.me/923155233895" target="_blank" class="contact-metric-box">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h4>WhatsApp Network</h4>
+                    <p>+92 315 5233895</p>
+                    <small style="color: var(--rose-gold); font-weight: bold;">Tap to switch to text</small>
+                </a>
+                <div class="contact-metric-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h4>Postal Mapping Index</h4>
+                    <p>Mandi Bahauddin, 50400</p>
+                    <small style="color: var(--text-muted);">Punjab, Pakistan</small>
+                </div>
+            </div>
+
+            <div class="maps-and-mini-form-layout">
+                <div class="map-iframe-container">
+                    <!-- Standard placeholder interactive link to external maps infrastructure safely embedded -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.9248443916964!2d73.4831!3d32.5852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCrzM1JzA2LjciTiA3M8KwMjknNTkuMiJF!5e0!3m2!1sen!2spk!4v1680000000000!5m2!1sen!2spk" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="mini-form-wrapper">
+                    <h4>Direct Pipeline Message</h4>
+                    <form id="contactMiniForm" onsubmit="processMiniContactSubmit(event)">
+                        <div class="input-element-group" style="margin-bottom: 1.2rem;">
+                            <label for="ctName">Identity Handle</label>
+                            <input type="text" id="ctName" class="form-interactive-field" required placeholder="Your Name...">
+                        </div>
+                        <div class="input-element-group" style="margin-bottom: 1.2rem;">
+                            <label for="ctPhone">Cellular Number</label>
+                            <input type="tel" id="ctPhone" class="form-interactive-field" required placeholder="03xx-xxxxxxx">
+                        </div>
+                        <div class="input-element-group" style="margin-bottom: 1.5rem;">
+                            <label for="ctMsg">Message Payload</label>
+                            <textarea id="ctMsg" class="form-interactive-field" rows="4" required placeholder="Describe your question or course enrollment data..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Transmit Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+                        </main>
+    <!-- --- APPLICATION FOOTER BAR --- -->
+    <footer>
+        <div class="footer-grid-layout">
+            <div class="footer-branding-column">
+                <h3>Imama's Salon</h3>
+                <p>Elevating personal style benchmarks while shaping elite beauty careers across Punjab. Experience premium care with zero compromises.</p>
+                <div class="footer-social-row">
+                    <a href="https://www.facebook.com" target="_blank" class="footer-social-circle" aria-label="Facebook Link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="footer-social-circle" aria-label="Instagram Link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com" target="_blank" class="footer-social-circle" aria-label="TikTok Link"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4>Navigation Index</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#home">Home Base Layout</a></li>
+                    <li><a href="#about">About & Metrics</a></li>
+                    <li><a href="#services">Treatment Registers</a></li>
+                    <li><a href="#gallery">Visual Evidence</a></li>
+                    <li><a href="#booking">Secure Slots</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-column">
+                <h4>Facility Hub Node</h4>
+                <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 0.5rem;"><i class="fa-solid fa-map-pin" style="color: var(--rose-gold);"></i> Faisal Bank Backside, Kachehri Rd, Mandi Bahauddin</p>
+                <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 0.5rem;"><i class="fa-solid fa-phone" style="color: var(--rose-gold);"></i> 0315-5233895</p>
+                <p style="font-size: 0.95rem; opacity: 0.8;"><i class="fa-solid fa-envelope" style="color: var(--rose-gold);"></i> support@imamasbeautysalon.com</p>
+            </div>
+        </div>
+
+        <div class="footer-closing-bar">
+            &copy; 2026 Imama's Beauty Salon & Training Centre — Mandi Bahauddin. Core Systems Active.
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Trigger -->
+    <a href="#home" class="back-to-top-scroller" id="backToTop" aria-label="Scroll back to top index"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <!-- --- CORE VANILLA JAVASCRIPT SYSTEM ENGINE --- -->
+    <script>
+        /* --- APPLICATION STATE MANAGEMENT CONFIGURATION --- */
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeThemeModule();
+            initializeNavbarModule();
+            initializeScrollRevealModule();
+            initializeCounterModule();
+            initializeGalleryModule();
+            initializeReviewCarouselModule();
+        });
+
+        /* --- THEME INTERFACE STATE CONTROL SYSTEM --- */
+        function initializeThemeModule() {
+            const themeToggle = document.getElementById("themeToggle");
+            const savedTheme = localStorage.getItem("app-luxury-theme") || "light";
+            
+            document.documentElement.setAttribute("data-theme", savedTheme);
+            updateThemeButtonIcon(savedTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const currentTheme = document.documentElement.getAttribute("data-theme");
+                const targetTheme = currentTheme === "dark" ? "light" : "dark";
+                
+                document.documentElement.setAttribute("data-theme", targetTheme);
+                localStorage.setItem("app-luxury-theme", targetTheme);
+                updateThemeButtonIcon(targetTheme);
+                displayToastMessage(`Interface mode swapped to ${targetTheme} environment.`, "fa-circle-half-stroke");
+            });
+        }
+
+        function updateThemeButtonIcon(theme) {
+            const btnIcon = document.getElementById("themeToggle").querySelector("i");
+            if (theme === "dark") {
+                btnIcon.className = "fa-solid fa-sun";
+            } else {
+                btnIcon.className = "fa-solid fa-moon";
+            }
+        }
+
+        /* --- RESPONSIVE NAVIGATION MODULE --- */
+        function initializeNavbarModule() {
+            const navbar = document.getElementById("navbar");
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("navMenu");
+            const navLinks = document.querySelectorAll(".nav-item");
+
+            // Scroll monitor for glass effects
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                    document.getElementById("backToTop").classList.add("visible");
+                } else {
+                    navbar.classList.remove("scrolled");
+                    document.getElementById("backToTop").classList.remove("visible");
+                }
+                trackActiveSectionScroll();
+            });
+
+            // Toggle mobile view drawer
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("open");
+                navMenu.classList.toggle("open");
+            });
+
+            // Close responsive menu upon nav click
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("open");
+                    navMenu.classList.remove("open");
+                });
+            });
+        }
+
+        function trackActiveSectionScroll() {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-item");
+            let currentActiveId = "";
+
+            sections.forEach(sec => {
+                const top = sec.offsetTop - 120;
+                if (window.pageYOffset >= top) {
+                    currentActiveId = sec.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${currentActiveId}`) {
+                    link.classList.add("active");
+                }
+            });
+        }
+ /* --- SCROLL INTERSECTION OBSERVER ENGINES --- */
+        function initializeScrollRevealModule() {
+            const revealNodes = document.querySelectorAll(".reveal");
+            const options = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            revealNodes.forEach(node => observer.observe(node));
+        }
+
+        /* --- ASYNC NUMERIC COUNT UP SYSTEM --- */
+        function initializeCounterModule() {
+            const counters = document.querySelectorAll(".counter-numeric");
+            const options = { threshold: 0.5 };
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetElement = entry.target;
+                        const finalLimit = parseInt(targetElement.getAttribute("data-target"));
+                        executeCountSequence(targetElement, finalLimit);
+                        counterObserver.unobserve(targetElement);
+                    }
+                });
+            }, options);
+
+            counters.forEach(counter => counterObserver.observe(counter));
+        }
+
+        function executeCountSequence(element, limit) {
+            let startValue = 0;
+            const duration = 1500; 
+            const stepTime = Math.max(Math.floor(duration / limit), 15);
+            
+            const clockTimer = setInterval(() => {
+                startValue += 1;
+                element.innerText = startValue + (limit === 47 || limit === 30 ? "+" : "");
+                if (startValue >= limit) {
+                    clearInterval(clockTimer);
+                }
+            }, stepTime);
+        }
+
+        /* --- TREATMENT HUB SUB-TAB SWITCHER CHANNEL --- */
+        function switchTabChannel(channelId, event) {
+            const views = document.querySelectorAll(".panel-view");
+            const triggers = document.querySelectorAll(".tab-trigger");
+
+            views.forEach(v => v.classList.remove("active"));
+            triggers.forEach(t => t.classList.remove("active"));
+
+            document.getElementById(channelId).classList.add("active");
+            event.currentTarget.classList.add("active");
+        }
+
+        /* --- PORTFOLIO GALLERY MASONRY ENGINE --- */
+        function initializeGalleryModule() {
+            const items = document.querySelectorAll(".gallery-item-wrapper");
+            
+            items.forEach(item => {
+                item.addEventListener("click", () => {
+                    const inlineStyleBg = item.querySelector(".gallery-canvas-placeholder").style.backgroundImage;
+                    const extractUrl = inlineStyleBg.slice(4, -1).replace(/"/g, "");
+                    const captureCaption = item.getAttribute("data-caption");
+                    
+                    launchGlobalLightbox(extractUrl, captureCaption);
+                });
+            });
+        }
+
+        function executeGalleryFilter(category, event) {
+            const items = document.querySelectorAll(".filter-node-item");
+            const filterBtns = document.querySelectorAll(".filter-btn");
+
+            filterBtns.forEach(btn => btn.classList.remove("active"));
+            event.currentTarget.classList.add("active");
+
+            items.forEach(item => {
+                if (category === "all" || item.classList.contains(category)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        function launchGlobalLightbox(src, caption) {
+            const portal = document.getElementById("lightboxPortal");
+            document.getElementById("lightboxImg").src = src;
+            document.getElementById("lightboxCaption").innerText = caption;
+            portal.classList.add("open");
+        }
+
+        function closeGlobalLightbox() {
+            document.getElementById("lightboxPortal").classList.remove("open");
+        }
+
+        /* --- AUTO SCROLL REVIEW CAROUSEL SYSTEM --- */
+        function initializeReviewCarouselModule() {
+            const railSlider = document.getElementById("reviewSlider");
+            let offsetTranslation = 0;
+            
+            setInterval(() => {
+                const boundaryCardWidth = railSlider.querySelector(".review-luxury-box").offsetWidth + 32; 
+                const totalVisibleWidth = railSlider.scrollWidth - railSlider.offsetWidth;
+                
+                offsetTranslation += boundaryCardWidth;
+                if (offsetTranslation > totalVisibleWidth) {
+                    offsetTranslation = 0;
+                }
+                railSlider.style.transform = `translateX(-${offsetTranslation}px)`;
+            }, 4000);
+        }
+
+        /* --- USER DATA CAPTURE AND FORM ACCELERATOR VALIDATIONS --- */
+        function processFormValidation(event) {
+            event.preventDefault();
+            let isValidationValid = true;
+
+            const fieldsArray = ["bkName", "bkPhone", "bkService", "bkDate", "bkTime"];
+            
+            fieldsArray.forEach(id => {
+                const element = document.getElementById(id);
+                const errorNode = document.getElementById(`err-${id}`);
+                
+                if (!element.value.trim()) {
+                    errorNode.style.display = "block";
+                    isValidationValid = false;
+                } else {
+                    errorNode.style.display = "none";
+                }
+            });
+
+            if (isValidationValid) {
+                const payloadObject = {
+                    name: document.getElementById("bkName").value,
+                    phone: document.getElementById("bkPhone").value,
+                    service: document.getElementById("bkService").value,
+                    date: document.getElementById("bkDate").value,
+                    time: document.getElementById("bkTime").value,
+                    notes: document.getElementById("bkNotes").value
+                };
+
+                localStorage.setItem("last-luxury-appointment", JSON.stringify(payloadObject));
+                launchSuccessModal(payloadObject);
+                document.getElementById("appointmentEngineForm").reset();
+            }
+        }
+
+        function processMiniContactSubmit(event) {
+            event.preventDefault();
+            const contactPayload = {
+                name: document.getElementById("ctName").value,
+                phone: document.getElementById("ctPhone").value,
+                message: document.getElementById("ctMsg").value
+            };
+
+            localStorage.setItem("last-contact-mini-payload", JSON.stringify(contactPayload));
+            displayToastMessage("Message sent successfully!", "fa-circle-check");
+            document.getElementById("contactMiniForm").reset();
+        }
+
+        /* --- NOTIFICATION POPUP VIEWPORT IMPLEMENTATION --- */
+        function displayToastMessage(message, iconClass) {
+            const stackContainer = document.getElementById("toastContainer");
+            const toastAlertNode = document.createElement("div");
+            toastAlertNode.className = "toast-alert";
+            toastAlertNode.innerHTML = `<i class="fa-solid ${iconClass}" style="color: var(--rose-gold)"></i> <span>${message}</span>`;
+            
+            stackContainer.appendChild(toastAlertNode);
+            setTimeout(() => toastAlertNode.classList.add("visible"), 50);
+
+            setTimeout(() => {
+                toastAlertNode.classList.remove("visible");
+                setTimeout(() => toastAlertNode.remove(), 400);
+            }, 3500);
+        }
+
+        function launchSuccessModal(payload) {
+            const modal = document.getElementById("successModal");
+            const syncBtn = document.getElementById("modalWhatsAppBtn");
+            
+            modal.style.display = "flex";
+
+            // Compose WhatsApp custom message string link
+            const formatString = `Assalam-o-Alaikum Imama's Salon, I want to confirm my booking schedule request:\n\n• Name: ${payload.name}\n• Contact: ${payload.phone}\n• Service: ${payload.service}\n• Date: ${payload.date}\n• Preferred Time Slot: ${payload.time}\n• Custom Scope: ${payload.notes}`;
+            const targetUrl = `https://wa.me/923155233895?text=${encodeURIComponent(formatString)}`;
+            
+            syncBtn.onclick = () => {
+                window.open(targetUrl, "_blank");
+                closeSuccessModal();
+            };
+        }
+
+        function closeSuccessModal() {
+            document.getElementById("successModal").style.display = "none";
+        }
+
+        function dispatchWhatsAppQuery(courseName) {
+            const templateText = `Assalam-o-Alaikum, I am interested in joining the professional course program: "${courseName}". Please provide structural entry links and pricing charts.`;
+            window.open(`https://wa.me/923155233895?text=${encodeURIComponent(templateText)}`, "_blank");
+        }
+    </script>
+</body>
+</html>
